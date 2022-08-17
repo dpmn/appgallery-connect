@@ -43,6 +43,7 @@ class Client:
         self._get_token()
 
         self.schemas = load_schemas()
+        self.application_id = self._config['application_id']
 
     @staticmethod
     def _get_config(config_path: str):
