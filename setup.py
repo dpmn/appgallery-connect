@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 
 setup(
     name="appgallery-connect",
-    version="0.0.3",
+    version="0.0.4",
     description="DPMN tap for extracting data",
     author="",
     url="",
@@ -17,7 +17,8 @@ setup(
     [console_scripts]
     appgallery-connect=appgallery_connect:main
     """,
-    packages=find_packages(where="appgallery_connect"),
+    packages=find_namespace_packages(where="appgallery_connect"),
+    package_dir={"": "appgallery_connect"},
     package_data={
         "schemas": ["*.json"]
     },
