@@ -74,7 +74,8 @@ class Client:
             })
         else:
             # TODO:
-            pass
+            print('Failed attempt to get token')
+            print(response.status_code, response.text)
 
     def installations_export(self, response_format: str = 'raw', **kwargs):
         urn = f'report/distribution-operation-quality/{API_VERSION}/appDownloadExport/{self._config["application_id"]}'
@@ -103,10 +104,11 @@ class Client:
                     }
                 else:
                     # TODO: Other formats (csv, json)
-                    pass
+                    print('Other formats (csv, json)')
             else:
                 # TODO:
-                pass
+                print('Other ret code')
+                print(data)
         # Client token auth failed
         elif response.status_code == 401 and self._retry > 0:
             self._retry = self._retry - 1
@@ -118,4 +120,4 @@ class Client:
             )
         else:
             # TODO: Other codes
-            pass
+            print('Client token auth failed')
