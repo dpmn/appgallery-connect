@@ -25,8 +25,8 @@ def load_schemas():
 
         file_raw = str(filename).replace('.json', '')
 
-        with open(path) as file:
-            schemas[file_raw] = json.load(file)
+        with open(path, 'r', encoding='utf-8') as file:
+            schemas[file_raw] = json.loads(file.read())
 
     return schemas
 
@@ -39,7 +39,10 @@ class Client:
         })
 
         self._config = self._get_config(config_path)
-        self._token = self._get_token()
+        self._retry = 3
+        self._get_token()
+
+        self.schemas = load_schemas()
 
     @staticmethod
     def _get_config(config_path: str):
@@ -68,8 +71,6 @@ class Client:
                 'Authorization': f'Bearer {access_token}',
                 'client_id': self._config['client_id']
             })
-
-            return access_token
         else:
             # TODO:
             pass
@@ -86,15 +87,34 @@ class Client:
             data = response.json()
 
             if data.get('ret', {}).get('code', None) == 0:
+                if params.get('groupBy', 'date') == 'date':
+                    schema = self.schemas['installations_by_date']
+                else:
+                    # TODO: Prepare other schemas
+                    schema = self.schemas['installations_by_date']
+
                 if response_format == 'raw':
                     data.pop('ret')
-                    return data
+
+                    return {
+                        'data': data,
+                        'schema': schema
+                    }
                 else:
                     # TODO: Other formats (csv, json)
                     pass
             else:
                 # TODO:
                 pass
+        # Client token auth failed
+        elif response.status_code == 401 and self._retry > 0:
+            self._retry = self._retry - 1
+            self._get_token()
+
+            return self.installations_export(
+                response_format=response_format,
+                **kwargs
+            )
         else:
-            # TODO: Code with expired token
+            # TODO: Other codes
             pass

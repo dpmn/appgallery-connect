@@ -11,6 +11,6 @@ Connect API Doc: https://developer.huawei.com/consumer/en/doc/development/AppGal
 {
   "client_id": "18893***83957248",
   "client_secret": "B15B497B44E080EBE2C4DE4E74930***52409516B2A1A5C8F0FCD2C579A8EB14",
-  "application_id": "10***7391"
+  "application_id": "10*****91"
 }
 ```

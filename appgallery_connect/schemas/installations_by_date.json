@@ -1,0 +1,62 @@
+[
+    {
+        "name": "date",
+        "type": "STRING",
+        "description": "Дата."
+    },
+    {
+        "name": "impressions",
+        "type": "INTEGER",
+        "description": "Число просмотров приложения пользователями в рекомендациях, рейтингах и результатах поиска."
+    },
+    {
+        "name": "impression_ctr",
+        "type": "STRING",
+        "description": "Процент переходов = (details_page_views + new_downloads) / impressions."
+    },
+    {
+        "name": "details_page_views",
+        "type": "INTEGER",
+        "description": "Число просмотров страницы описания приложения."
+    },
+    {
+        "name": "total_downloads",
+        "type": "INTEGER",
+        "description": "Число загрузок приложения (включая новые загрузки и обновления)."
+    },
+    {
+        "name": "successful_updates",
+        "type": "INTEGER",
+        "description": "Число обновлений приложения в AppGallery."
+    },
+    {
+        "name": "new_downloads",
+        "type": "INTEGER",
+        "description": "Число новых загрузок приложения из AppGallery."
+    },
+    {
+        "name": "details_page_conversion_rate",
+        "type": "STRING",
+        "description": "Доля посетителей страницы описания, выполнивших загрузку приложения."
+    },
+    {
+        "name": "successful_installs",
+        "type": "INTEGER",
+        "description": "Количество выполненных установок приложения из AppGallery."
+    },
+    {
+        "name": "installation_success_rate",
+        "type": "STRING",
+        "description": "Процент выполненных установок приложения после новых загрузок = successful_installs / new_downloads."
+    },
+    {
+        "name": "uninstalls",
+        "type": "INTEGER",
+        "description": "Количество приложений, установленных из HUAWEI AppGallery, которые позже были удалены."
+    },
+    {
+        "name": "successful_sharings",
+        "type": "INTEGER",
+        "description": "Количество отправок приложения пользователям в КНР (кроме Гонконга, Макао и Тайваня)."
+    }
+]
