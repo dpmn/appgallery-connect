@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="appgallery-connect",
@@ -17,11 +17,10 @@ setup(
     [console_scripts]
     appgallery-connect=appgallery_connect:main
     """,
-    packages=["appgallery_connect"],
+    packages=find_packages(where="appgallery_connect"),
+    package_dir={"": "appgallery_connect"},
     package_data={
-        "appgallery_connect/schemas": [
-            "installations_by_date.json"
-        ]
+        "schemas": ["*.json"]
     },
     include_package_data=True,
 )
