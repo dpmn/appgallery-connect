@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="appgallery-connect",
-    version="0.1.0",
+    version="0.0.1",
     description="DPMN tap for extracting data",
     author="",
     url="",
@@ -19,7 +19,9 @@ setup(
     """,
     packages=["appgallery_connect"],
     package_data={
-        "schemas": ["appgallery_connect/schemas/*.json"]
+        "appgallery_connect/schemas": [
+            "installations_by_date.json"
+        ]
     },
     include_package_data=True,
 )
