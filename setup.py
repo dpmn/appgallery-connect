@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="appgallery-connect",
-    version="0.0.5",
+    version="0.0.1",
     description="DPMN tap for extracting data",
     author="",
     url="",
