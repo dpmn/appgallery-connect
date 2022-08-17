@@ -18,7 +18,6 @@ setup(
     appgallery-connect=appgallery_connect:main
     """,
     packages=find_packages(where="appgallery_connect"),
-    package_dir={"": "appgallery_connect"},
     package_data={
         "schemas": ["*.json"]
     },
